@@ -146,7 +146,7 @@ class LogisticRegression:
         s = sig(X_batch, self.w)
 
         loss = -np.sum(y_batch * np.log(s) + (1 - y_batch) * np.log(1 - s))
-        dw = np.dot(X_batch.toarray().T, (s - y_batch))
+        dw = X_batch.T.dot((s - y_batch))
 
         # Right now the loss is a sum over all training examples, but we want it
         # to be an average instead so we divide by num_train.
